@@ -106,15 +106,16 @@ include "modal/add-category.php";
                                     <td><?= dateEN($mm['dateTransactions']); ?></td>
                                     <td><?= $mm['description']; ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-category">
+                                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-detail<?= $mm['uuid']; ?>">
                                             <i class="fas fa-coffee"></i>
                                         </button>
-                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-category">
+                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </td>
                                 </tr>
                             <?php
+                                include "modal/detail-transaction.php";
                                 $i++;
                             endforeach;
                             ?>
