@@ -76,7 +76,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">NOTE</li>
                         <li class="nav-item">
-                            <a href="notes" class="nav-link">
+                            <a href="page-notes" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Notes
