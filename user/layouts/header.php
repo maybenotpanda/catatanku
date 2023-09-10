@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MyMango.ID | <?= $title ?></title>
-
+    <link rel="icon" type="image/x-icon" href="<?= assets('img/icon.png')?>">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -76,10 +76,11 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">NOTE</li>
                         <li class="nav-item">
-                            <a href="notes" class="nav-link">
+                            <a href="page-notes" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Notes
+                                    <span class="right badge badge-warning">Maintenance</span>
                                 </p>
                             </a>
                         </li>

@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="topnav">
             <a class="active" href="index">Home</a>
-            <a href="user/notes">Notes</a>
+            <a href="user/page-notes">Notes</a>
             <a href="user/page-transactions">Keungaan</a>
             <a href="#" style="pointer-events: none;">todo</a>
             <a href="#" style="pointer-events: none;">?>?F</a>
