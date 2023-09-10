@@ -80,6 +80,7 @@
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Notes
+                                    <span class="right badge badge-warning">Maintenance</span>
                                 </p>
                             </a>
                         </li>
