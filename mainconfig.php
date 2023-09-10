@@ -22,7 +22,7 @@ if ($call->connect_error) {
 
 function rupiah($number)
 {
-    if ($number === 0) {
+    if (is_null($number) || $number === 0) {
         $result = "Rp. 0";
     } else {
         $result = "Rp " . number_format($number, 0, ',', '.');

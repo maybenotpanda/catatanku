@@ -24,10 +24,10 @@ if (isset($_POST['save'])) {
         mysqli_query($call, "UPDATE accounts SET balance='$resultOut', updated_at='$dtme' WHERE uuid='$accountIn'");
         mysqli_query($call, "UPDATE accounts SET balance='$resultIn', updated_at='$dtme' WHERE uuid='$accountOut'");
 
-        $queryA     = "INSERT INTO transactions (uuid, account, category, name, total, type, description, dateTransactions, created_at) VALUE (UUID(), '$accountIn', '0b8ae689-4f94-11ee-8a46-9c2f9dbc986a', 'Transfer Balance Out', '$total', 'expense', '$description', '$dateTransactions', '$dtme')";
+        $queryA     = "INSERT INTO transactions (uuid, account, category, name, total, type, description, dateTransaction, created_at) VALUE (UUID(), '$accountIn', '0b8ae689-4f94-11ee-8a46-9c2f9dbc986a', 'Transfer Balance Out', '$total', 'expense', '$description', '$dateTransactions', '$dtme')";
         $resultA    = mysqli_query($call, $queryA);
 
-        $queryB     = "INSERT INTO transactions (uuid, account, category, name, total, type, description, dateTransactions, created_at) VALUE (UUID(), '$accountOut', '195b3752-4f94-11ee-8a46-9c2f9dbc986a', 'Transfer Balance In', '$total', 'income', '$description', '$dateTransactions', '$dtme')";
+        $queryB     = "INSERT INTO transactions (uuid, account, category, name, total, type, description, dateTransaction, created_at) VALUE (UUID(), '$accountOut', '195b3752-4f94-11ee-8a46-9c2f9dbc986a', 'Transfer Balance In', '$total', 'income', '$description', '$dateTransactions', '$dtme')";
         $resultB    = mysqli_query($call, $queryB);
 
         if ($resultA && $resultB) {
