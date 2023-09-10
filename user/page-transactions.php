@@ -3,6 +3,7 @@ $title = "Transactions";
 include "layouts/header.php";
 include "modal/add-transaction-income.php";
 include "modal/add-transaction-expense.php";
+include "modal/add-transaction-transfer.php";
 include "modal/add-category.php";
 ?>
 
