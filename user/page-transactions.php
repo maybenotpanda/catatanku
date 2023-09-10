@@ -35,7 +35,20 @@ include "modal/add-category.php";
                         <span class="info-box-icon bg-success"><i class="fa fa-check" style="color: #1f2d3d;"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Pemasukan</span>
+                            <span class="info-box-text">Income</span>
+                            <span class="info-box-number"></span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4 col-sm-6 col-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-danger"><i class="fa fa-times" style="color: #1f2d3d;"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Expense</span>
                             <span class="info-box-number"></span>
                         </div>
                         <!-- /.info-box-content -->
@@ -48,14 +61,13 @@ include "modal/add-category.php";
                         <span class="info-box-icon bg-info"><i class="fa fa-times" style="color: #1f2d3d;"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Pengeluaran</span>
+                            <span class="info-box-text">Expense</span>
                             <span class="info-box-number"></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
             </div>
             <div class="card">
                 <div class="card-header bg-black color-palette">
@@ -64,25 +76,25 @@ include "modal/add-category.php";
                 <!-- /.card-header -->
                 <div class="card-body">
                     <a class="btn btn-app bg-success" data-toggle="modal" data-target="#modal-income">
-                        <i class="fas fa-arrow-up"></i>Income
+                        <i class="fas fa-arrow-up" style="color: #1f2d3d;"></i><span style="color: #f7f7f7;">Income</span>
                     </a>
                     <a class="btn btn-app bg-danger" data-toggle="modal" data-target="#modal-expense">
-                        <i class="fas fa-arrow-down"></i>Expense
+                        <i class="fas fa-arrow-down" style="color: #1f2d3d;"></i><span style="color: #f7f7f7;">Expense</span>
                     </a>
                     <a class="btn btn-app bg-warning" data-toggle="modal" data-target="#modal-transfer">
-                        <i class="fas fa-retweet"></i>Transfer
+                        <i class="fas fa-retweet" style="color: #1f2d3d;"></i><span style="color: #f7f7f7;">Transfer</span>
                     </a>
                     <a class="btn btn-app bg-info" data-toggle="modal" data-target="#modal-category">
-                        <i class=" fas fa-cat"></i>Category
+                        <i class=" fas fa-cat" style="color: #1f2d3d;"></i><span style="color: #f7f7f7;">Category</span>
                     </a>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th style="width: 1px;">No.</th>
                                 <th>Title</th>
                                 <th>Total</th>
                                 <th>Type</th>
                                 <th>Date</th>
-                                <th>Description</th>
                                 <th>#</th>
                             </tr>
                         </thead>
@@ -93,6 +105,7 @@ include "modal/add-category.php";
                             foreach ($say as $mm) :
                             ?>
                                 <tr>
+                                    <td><?= $i ?></td>
                                     <td><?= $mm['name']; ?></td>
                                     <td><?= rupiah($mm['total']); ?></td>
                                     <td>
@@ -104,8 +117,7 @@ include "modal/add-category.php";
                                         }
                                         ?>
                                     </td>
-                                    <td><?= dateEN($mm['dateTransactions']); ?></td>
-                                    <td><?= $mm['description']; ?></td>
+                                    <td><?= dateEN($mm['dateTransaction']); ?></td>
                                     <td>
                                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-detail<?= $mm['uuid']; ?>">
                                             <i class="fas fa-coffee"></i>
@@ -123,11 +135,11 @@ include "modal/add-category.php";
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th>No</th>
                                 <th>Title</th>
                                 <th>Total</th>
                                 <th>Type</th>
                                 <th>Date</th>
-                                <th>Description</th>
                                 <th>#</th>
 
                             </tr>
