@@ -5,6 +5,15 @@ include "modal/add-transaction-income.php";
 include "modal/add-transaction-expense.php";
 include "modal/add-transaction-transfer.php";
 include "modal/add-category.php";
+
+$i      = mysqli_query($call, "SELECT SUM(total) as total FROM transactions WHERE type='income'");
+$in     = mysqli_fetch_assoc($i);
+
+$o      = mysqli_query($call, "SELECT SUM(total) as total FROM transactions WHERE type='expense'");
+$out    = mysqli_fetch_assoc($o);
+
+$t      = mysqli_query($call, "SELECT SUM(balance) as balance FROM accounts");
+$total  = mysqli_fetch_assoc($t);
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -36,7 +45,7 @@ include "modal/add-category.php";
 
                         <div class="info-box-content">
                             <span class="info-box-text">Income</span>
-                            <span class="info-box-number"></span>
+                            <span class="info-box-number"><?= rupiah($in['total']) ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -49,7 +58,7 @@ include "modal/add-category.php";
 
                         <div class="info-box-content">
                             <span class="info-box-text">Expense</span>
-                            <span class="info-box-number"></span>
+                            <span class="info-box-number"><?= rupiah($out['total']) ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -58,11 +67,10 @@ include "modal/add-category.php";
                 <!-- /.col -->
                 <div class="col-md-4 col-sm-6 col-12">
                     <div class="info-box">
-                        <span class="info-box-icon bg-info"><i class="fa fa-times" style="color: #1f2d3d;"></i></span>
-
+                        <span class="info-box-icon bg-info"><i class="fas fa-money-bill-wave" style="color: #1f2d3d;"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Expense</span>
-                            <span class="info-box-number"></span>
+                            <span class="info-box-text">Balance</span>
+                            <span class="info-box-number"><?= rupiah($total['balance']) ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
