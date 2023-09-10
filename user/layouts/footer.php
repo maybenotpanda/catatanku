@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-        <b>Version</b> 2.1.0
+        <b>Version</b> 2.1.1
     </div>
     <strong>Created By &copy; 2021 <a href="demiadektu.com">MyMango.ID</a>.</strong>
 </footer>
@@ -47,6 +47,17 @@
         });
 
         $('#ExpenseDate').datetimepicker({
+            icons: {
+                time: 'far fa-clock'
+            }
+        });
+
+        $('#TransferDate').datetimepicker({
+            format: 'DD-MM-YYYY',
+            defaultDate: new Date(),
+        });
+
+        $('#TransferDate').datetimepicker({
             icons: {
                 time: 'far fa-clock'
             }

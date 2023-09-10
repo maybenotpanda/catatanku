@@ -12,7 +12,7 @@ if (isset($_POST['save'])) {
     $description    = $_POST['6'];
 
     $dateExplode        = explode('-', $date);
-    $dateTransactions   = $dateExplode[2] . '-' . $dateExplode[1] . '-' . $dateExplode[0];
+    $dateTransaction   = $dateExplode[2] . '-' . $dateExplode[1] . '-' . $dateExplode[0];
 
     $getAccount     = mysqli_query($call, "SELECT * FROM accounts WHERE uuid='$account'");
     $data           = mysqli_fetch_array($getAccount);
@@ -25,7 +25,7 @@ if (isset($_POST['save'])) {
         mysqli_query($call, "UPDATE accounts SET balance='$result', updated_at='$dtme' WHERE uuid='$account'");
     }
 
-    $a = "INSERT INTO transactions (uuid, account, category, name, total, type, description, dateTransactions, created_at) VALUE (UUID(), '$account', '$category', '$name', '$total', '$type', '$description', '$dateTransactions', '$dtme')";
+    $a = "INSERT INTO transactions (uuid, account, category, name, total, type, description, dateTransaction, created_at) VALUE (UUID(), '$account', '$category', '$name', '$total', '$type', '$description', '$dateTransaction', '$dtme')";
     $query = mysqli_query($call, $a);
 
     if ($query) {
