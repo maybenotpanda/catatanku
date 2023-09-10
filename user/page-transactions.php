@@ -116,7 +116,7 @@ include "modal/add-category.php";
                                         }
                                         ?>
                                     </td>
-                                    <td><?= dateEN($mm['dateTransactions']); ?></td>
+                                    <td><?= dateEN($mm['dateTransaction']); ?></td>
                                     <td>
                                         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-category">
                                             <i class="fas fa-coffee"></i>
