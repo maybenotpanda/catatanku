@@ -47,7 +47,7 @@ include "layouts/header.php";
                         </div>
                         <div class="form-group">
                             <label>Status</label>
-                            <select class="form-control select2" style="width: 100%;" name="2">
+                            <select class="form-control" style="width: 100%;" name="2">
                                 <?php
                                 $say = getAllStatus('process');
                                 foreach ($say as $mm) :
