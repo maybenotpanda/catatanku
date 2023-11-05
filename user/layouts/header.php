@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MyMango.ID | <?= $title ?></title>
-    <link rel="icon" type="image/x-icon" href="<?= assets('img/icon.png')?>">
+    <link rel="icon" type="image/x-icon" href="<?= assets('img/icon.png') ?>">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -99,7 +99,6 @@
                                 <i class="nav-icon	fab fa-cc-paypal"></i>
                                 <p>
                                     Accounts
-                                    <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
                         </li>
@@ -108,6 +107,15 @@
                                 <i class="nav-icon fas fa-money-bill-wave"></i>
                                 <p>
                                     Transactions
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="page-planning" class="nav-link">
+                                <i class="nav-icon fas fa-ghost"></i>
+                                <p>
+                                    Planning
+                                    <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
                         </li>
