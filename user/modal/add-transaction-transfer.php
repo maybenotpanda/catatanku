@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('library/configuration/transactions/add-transfer-balance') ?>" method="POST">
+            <form action="<?= base_url('library/configuration/transactions/add-transfer-balance?user='. $_SESSION['uuid']) ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Date:</label>
