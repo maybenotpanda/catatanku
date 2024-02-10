@@ -31,7 +31,7 @@
                         <select class="form-control select2" style="width: 100%;" name="4">
                             <option selected="selected" disabled>Select Options</option>
                             <?php
-                            $say = getAllAccounts();
+                            $say = getAllAccounts($_SESSION['uuid']);
                             foreach ($say as $mm) :
                                 echo "<option value=" . $mm['uuid'] . ">" . $mm['name'] . "</option>";
                             endforeach;
@@ -57,7 +57,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
-                    <button type="submit" name="save" class="btn btn-dark btn-block">Save.. <i class="fa fa-save"></i></button>370f810f2000a876815a8df69fe
+                    <button type="submit" name="request" class="btn btn-dark btn-block">Save.. <i class="fa fa-save"></i></button>370f810f2000a876815a8df69fe
                 </div>
             </form>
         </div>

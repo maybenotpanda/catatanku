@@ -4,9 +4,7 @@ include "layouts/header.php";
 include "modal/add-transaction-income.php";
 include "modal/add-category.php";
 ?>
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -20,13 +18,10 @@ include "modal/add-category.php";
                     </ol>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
-
-    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <!-- Default box -->
             <div class="card">
                 <div class="card-header bg-black color-palette">
                     <h3 class="card-title">Akun Baru</h3>
@@ -40,18 +35,17 @@ include "modal/add-category.php";
                         </button>
                     </div>
                 </div>
-
                 <div class="card-body">
-                    <form action="../library/configuration/add-account" method="POST">
+                    <form action=" <?= base_url('library/configuration/add-account?user=' .  $_SESSION['uuid']) ?>" method="POST">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name Account:</label>
-                            <input type="text" name="1" class="form-control" placeholder="Insert your title">
+                            <input type="text" name="name" class="form-control" placeholder="Insert your title">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Nominal: </label>
-                            <input type="text" id="nominalRupiah" class="form-control" placeholder="Nominal" name="2">
+                            <input type="text" id="nominalRupiah" class="form-control" placeholder="Nominal" name="balance">
                         </div>
-                        <button type="submit" name="save" class="btn btn-dark btn-flat">Save.. <i class="fa fa-save"></i></button>
+                        <button type="submit" name="request" class="btn btn-dark btn-flat">Save.. <i class="fa fa-save"></i></button>
                     </form>
                 </div>
             </div>
@@ -70,7 +64,7 @@ include "modal/add-category.php";
                         </thead>
                         <tbody>
                             <?php
-                            $say = mysqli_query($call, "SELECT * FROM accounts");
+                            $say = getAllAccounts($_SESSION['uuid']);
                             foreach ($say as $mm) :
                             ?>
                                 <tr>
@@ -100,12 +94,8 @@ include "modal/add-category.php";
                         </tfoot>
                     </table>
                 </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
         </div>
     </section>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
 <?php include "layouts/footer.php"; ?>
