@@ -8,4 +8,5 @@
 |Accounts|1.2.0|
 |Login|2.1.0|
 |Dashboard|2.2.0|
+|Accounts With UUID|2.2.3|
 
