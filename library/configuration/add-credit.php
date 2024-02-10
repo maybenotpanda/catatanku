@@ -5,12 +5,11 @@ include("../../mainconfig.php");
 if (isset($_POST['request'])) {
     $type           = $_GET['type'];
     $user           = $_GET['user'];
-    $date           = $_POST['1'];
-    $name           = $_POST['2'];
-    $total          = preg_replace("/[^0-9]/", "", $_POST['3']);
-    $account        = $_POST['4'];
-    $category       = $_POST['5'];
-    $description    = $_POST['6'];
+    $date           = $_POST['date'];
+    $name           = $_POST['name'];
+    $total          = preg_replace("/[^0-9]/", "", $_POST['transaction']);
+    $account        = $_POST['account'];
+    $description    = $_POST['description'];
 
     $dateExplode        = explode('-', $date);
     $dateTransaction   = $dateExplode[2] . '-' . $dateExplode[1] . '-' . $dateExplode[0];
@@ -26,7 +25,7 @@ if (isset($_POST['request'])) {
         mysqli_query($call, "UPDATE accounts SET balance='$result', updated_at='$dtme' WHERE uuid='$account'");
     }
 
-    $a = "INSERT INTO transactions (uuid, siteUser, account, category, name, total, type, description, dateTransaction, created_at) VALUE (UUID(), '$user', '$account', '$category', '$name', '$total', '$type', NULLIF('$description', ''), '$dateTransaction', '$dtme')";
+    $a = "INSERT INTO credit (uuid, siteUser, siteAccount, name, total, type, description, status, created_by, created_at) VALUE (UUID(), '$user', '$account', '$name', '$total', '$type', NULLIF('$description', ''), 'Not Started', '$dateTransaction', '$dtme')";
     $query = mysqli_query($call, $a);
 
     if ($query) {

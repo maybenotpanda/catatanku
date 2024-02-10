@@ -5,15 +5,28 @@ include "modal/add-transaction-income.php";
 include "modal/add-transaction-expense.php";
 include "modal/add-transaction-transfer.php";
 include "modal/add-category.php";
-
-$i      = mysqli_query($call, "SELECT SUM(total) as total FROM transactions WHERE type='income'");
-$in     = mysqli_fetch_assoc($i);
-
-$o      = mysqli_query($call, "SELECT SUM(total) as total FROM transactions WHERE type='expense'");
-$out    = mysqli_fetch_assoc($o);
-
-$t      = mysqli_query($call, "SELECT SUM(balance) as balance FROM accounts");
-$total  = mysqli_fetch_assoc($t);
+$user = $_SESSION['uuid'];
+$i      = mysqli_query($call, "SELECT SUM(total) as total FROM transactions WHERE type='income' AND siteUser='$user'");
+if ($i) {
+    $in     = mysqli_fetch_assoc($i);
+    $totalIn = $in['total'];
+} else {
+    $totalIn = 0;
+}
+$o      = mysqli_query($call, "SELECT SUM(total) as total FROM transactions WHERE type='expense' AND siteUser='$user'");
+if ($i) {
+    $out    = mysqli_fetch_assoc($o);
+    $totalOut = $out['total'];
+} else {
+    $totalOut = 0;
+}
+$t      = mysqli_query($call, "SELECT SUM(balance) as balance FROM accounts WHERE siteUser='$user'");
+if ($t) {
+    $resTotal     = mysqli_fetch_assoc($t);
+    $total = $resTotal['balance'];
+} else {
+    $total = 0;
+}
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -45,7 +58,7 @@ $total  = mysqli_fetch_assoc($t);
 
                         <div class="info-box-content">
                             <span class="info-box-text">Income</span>
-                            <span class="info-box-number"><?= rupiah($in['total']) ?></span>
+                            <span class="info-box-number"><?= rupiah($totalIn) ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -58,7 +71,7 @@ $total  = mysqli_fetch_assoc($t);
 
                         <div class="info-box-content">
                             <span class="info-box-text">Expense</span>
-                            <span class="info-box-number"><?= rupiah($out['total']) ?></span>
+                            <span class="info-box-number"><?= rupiah($totalOut) ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -70,7 +83,7 @@ $total  = mysqli_fetch_assoc($t);
                         <span class="info-box-icon bg-info"><i class="fas fa-money-bill-wave" style="color: #1f2d3d;"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Balance</span>
-                            <span class="info-box-number"><?= rupiah($total['balance']) ?></span>
+                            <span class="info-box-number"><?= rupiah($total) ?></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -109,7 +122,7 @@ $total  = mysqli_fetch_assoc($t);
                         <tbody>
                             <?php
                             $i = 1;
-                            $say = getAllTransactions();
+                            $say = getAllTransactions($user);
                             foreach ($say as $mm) :
                             ?>
                                 <tr>

@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('library/configuration/transactions/add-transfer-balance') ?>" method="POST">
+            <form action="<?= base_url('library/configuration/transactions/add-transfer-balance?user='. $_SESSION['uuid']) ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Date:</label>
@@ -23,7 +23,7 @@
                         <select class="form-control select2" style="width: 100%;" name="2">
                             <option selected="selected" disabled>Select Account</option>
                             <?php
-                            $say = getAllAccounts();
+                            $say = getAllAccounts($_SESSION['uuid']);
                             foreach ($say as $mm) :
                                 echo "<option value=" . $mm['uuid'] . ">" . $mm['name'] . "</option>";
                             endforeach;
@@ -35,7 +35,7 @@
                         <select class="form-control select2" style="width: 100%;" name="3">
                             <option selected="selected" disabled>Select Account</option>
                             <?php
-                            $say = getAllAccounts();
+                            $say = getAllAccounts($_SESSION['uuid']);
                             foreach ($say as $mm) :
                                 echo "<option value=" . $mm['uuid'] . ">" . $mm['name'] . "</option>";
                             endforeach;
