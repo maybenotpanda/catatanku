@@ -76,7 +76,7 @@
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Dashboard
-                                    <span class="right badge badge-warning">Maintenance</span>
+                                    <span class="right badge badge-success">Development</span>
                                 </p>
                             </a>
                         </li>
