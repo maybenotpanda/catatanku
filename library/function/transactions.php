@@ -1,16 +1,16 @@
 <?php
 
-function getAllTransactions()
+function getAllTransactions($user)
 {
     global $call;
-    $query = mysqli_query($call, "SELECT * FROM transactions ORDER BY created_at desc");
+    $query = mysqli_query($call, "SELECT * FROM transactions WHERE siteUser='$user' ORDER BY created_at desc");
     return $query;
 }
 
 function getDetailTransactions($uuid)
 {
     global $call;
-    $query = mysqli_query($call, "SELECT 
+    $query = mysqli_query($call, "SELECT
                                             transactions.name,
                                             transactions.dateTransaction AS date,
                                             transactions.total,
@@ -19,9 +19,9 @@ function getDetailTransactions($uuid)
                                             transactions.created_at,
                                             category.name AS category,
                                             accounts.name AS account
-                                            FROM transactions 
+                                            FROM transactions
                                             JOIN accounts
-                                            ON transactions.account = accounts.uuid 
+                                            ON transactions.account = accounts.uuid
                                             JOIN category
                                             ON transactions.category = category.uuid
                                             WHERE transactions.uuid='$uuid'");

@@ -2,8 +2,9 @@
 
 include("../../mainconfig.php");
 
-if (isset($_POST['save'])) {
+if (isset($_POST['request'])) {
     $type           = $_GET['type'];
+    $user           = $_GET['user'];
     $date           = $_POST['1'];
     $name           = $_POST['2'];
     $total          = preg_replace("/[^0-9]/", "", $_POST['3']);
@@ -25,7 +26,7 @@ if (isset($_POST['save'])) {
         mysqli_query($call, "UPDATE accounts SET balance='$result', updated_at='$dtme' WHERE uuid='$account'");
     }
 
-    $a = "INSERT INTO transactions (uuid, account, category, name, total, type, description, dateTransaction, created_at) VALUE (UUID(), '$account', '$category', '$name', '$total', '$type', '$description', '$dateTransaction', '$dtme')";
+    $a = "INSERT INTO transactions (uuid, siteUser, account, category, name, total, type, description, dateTransaction, created_at) VALUE (UUID(), '$user', '$account', '$category', '$name', '$total', '$type', NULLIF('$description', ''), '$dateTransaction', '$dtme')";
     $query = mysqli_query($call, $a);
 
     if ($query) {

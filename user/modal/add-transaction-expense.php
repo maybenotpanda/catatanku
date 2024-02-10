@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('library/configuration/add-transaction?type=expense') ?>" method="POST">
+            <form action="<?= base_url('library/configuration/add-transaction?type=expense&user=' . $_SESSION['uuid']) ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Date:</label>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
-                    <button type="submit" name="save" class="btn btn-dark btn-block">Save.. <i class="fa fa-save"></i></button>
+                    <button type="submit" name="request" class="btn btn-dark btn-block">Save.. <i class="fa fa-save"></i></button>
                 </div>
             </form>
         </div>
