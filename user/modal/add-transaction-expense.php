@@ -31,7 +31,7 @@
                         <select class="form-control select2" style="width: 100%;" name="4">
                             <option selected="selected" disabled>Select Options</option>
                             <?php
-                            $say = getAllAccounts();
+                            $say = getAllAccounts($_SESSION['uuid']);
                             foreach ($say as $mm) :
                                 echo "<option value=" . $mm['uuid'] . ">" . $mm['name'] . "</option>";
                             endforeach;
