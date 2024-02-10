@@ -16,3 +16,4 @@ include_once '../library/function/accounts.php';
 include_once '../library/function/category.php';
 include_once '../library/function/planning.php';
 include_once '../library/function/transactions.php';
+include_once '../library/function/credit.php';
