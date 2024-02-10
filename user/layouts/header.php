@@ -117,7 +117,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="page-planning" class="nav-link">
+                            <a href="page-credit" class="nav-link">
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Credit
