@@ -10,3 +10,4 @@
 | Accounts With UUID       | 2.2.3   |
 | Credit                   | 2.3.3   |
 | Transactions             | 2.3.4   |
+| Planning                 | 2.4.4   |
