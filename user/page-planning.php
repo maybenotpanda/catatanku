@@ -1,10 +1,11 @@
 <?php
-$title = "Accounts";
+$title = "Planning";
 include "layouts/header.php";
-include "modal/add-transaction-income.php";
-include "modal/add-category.php";
 ?>
+
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -18,13 +19,15 @@ include "modal/add-category.php";
                     </ol>
                 </div>
             </div>
-        </div>
+        </div><!-- /.container-fluid -->
     </section>
+
+    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header bg-black color-palette">
-                    <h3 class="card-title">Akun Baru</h3>
+                    <h3 class="card-title">New Planning</h3>
 
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -35,15 +38,32 @@ include "modal/add-category.php";
                         </button>
                     </div>
                 </div>
+
                 <div class="card-body">
-                    <form action=" <?= base_url('library/configuration/add-account?user=' .  $_SESSION['uuid']) ?>" method="POST">
+                    <form action="<?= base_url('library/configuration/planning?type=add&user=' . $_SESSION['uuid']) ?>" method="POST">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Name Account:</label>
-                            <input type="text" name="name" class="form-control" placeholder="Insert your title">
+                            <label for="exampleInputEmail1">Name Planning:</label>
+                            <input type="text" name="name" class="form-control" placeholder="Insert your planning">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Nominal: </label>
-                            <input type="text" id="nominalRupiah" class="form-control" placeholder="Nominal" name="balance">
+                            <label>Priority</label>
+                            <select class="form-control" style="width: 100%;" name="priority">
+                                <option selected="" disabled>Select Options</option>
+                                <?php
+                                $say = getAllStatus('priority');
+                                foreach ($say as $mm) :
+                                    echo "<option value=" . $mm['id'] . ">" . $mm['name'] . "</option>";
+                                endforeach;
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Target: </label>
+                            <input type="text" id="nominalRupiah" class="form-control" placeholder="Target" name="target">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" placeholder="Description" name="description"></textarea>
                         </div>
                         <button type="submit" name="request" class="btn btn-dark btn-flat">Save.. <i class="fa fa-save"></i></button>
                     </form>
@@ -51,25 +71,29 @@ include "modal/add-category.php";
             </div>
             <div class="card">
                 <div class="card-header bg-black color-palette">
-                    <h3 class="card-title">Catatan Akun</h3>
+                    <h3 class="card-title">My Planning</h3>
                 </div>
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Name Accounts</th>
-                                <th>Nominal</th>
+                                <th>Planning</th>
+                                <th>Status</th>
+                                <th>Target</th>
+                                <th>Priority</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $say = getAllAccounts($_SESSION['uuid']);
+                            $i = 1;
+                            $say = getAllPlanning();
                             foreach ($say as $mm) :
                             ?>
                                 <tr>
-                                    <td><?= $mm['name']; ?></td>
-                                    <td><?= rupiah($mm['balance']); ?></td>
+                                    <td><?= $mm['planning']; ?></td>
+                                    <td><?= $mm['status']; ?></td>
+                                    <td><?= rupiah($mm['nominal']); ?></td>
                                     <td>
                                         <?php
                                         if ($mm['updated_at'] === null) {
@@ -77,7 +101,6 @@ include "modal/add-category.php";
                                         } else {
                                             echo dateEN($mm['updated_at']);
                                         }
-
                                         ?>
                                     </td>
                                 </tr>
@@ -87,8 +110,10 @@ include "modal/add-category.php";
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Name Accounts</th>
+                                <th>Planning</th>
+                                <th>Status</th>
                                 <th>Nominal</th>
+                                <th>Priority</th>
                                 <th>Date</th>
                             </tr>
                         </tfoot>
@@ -97,5 +122,8 @@ include "modal/add-category.php";
             </div>
         </div>
     </section>
+    <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->
+
 <?php include "layouts/footer.php"; ?>
