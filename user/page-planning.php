@@ -40,25 +40,14 @@ include "layouts/header.php";
                 </div>
 
                 <div class="card-body">
-                    <form action="../library/configuration/add-planning" method="POST">
+                    <form action="<?= base_url('library/configuration/planning?type=add&user=' . $_SESSION['uuid']) ?>" method="POST">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name Planning:</label>
-                            <input type="text" name="1" class="form-control" placeholder="Insert your planning">
-                        </div>
-                        <div class="form-group">
-                            <label>Status</label>
-                            <select class="form-control" style="width: 100%;" name="2">
-                                <?php
-                                $say = getAllStatus('process');
-                                foreach ($say as $mm) :
-                                    echo "<option value=" . $mm['id'] . ">" . $mm['name'] . "</option>";
-                                endforeach;
-                                ?>
-                            </select>
+                            <input type="text" name="name" class="form-control" placeholder="Insert your planning">
                         </div>
                         <div class="form-group">
                             <label>Priority</label>
-                            <select class="form-control" style="width: 100%;" name="3">
+                            <select class="form-control" style="width: 100%;" name="priority">
                                 <option selected="" disabled>Select Options</option>
                                 <?php
                                 $say = getAllStatus('priority');
@@ -69,10 +58,14 @@ include "layouts/header.php";
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Nominal: </label>
-                            <input type="text" id="nominalRupiah" class="form-control" placeholder="Nominal" name="4">
+                            <label for="exampleInputPassword1">Target: </label>
+                            <input type="text" id="nominalRupiah" class="form-control" placeholder="Target" name="target">
                         </div>
-                        <button type="submit" name="save" class="btn btn-dark btn-flat">Save.. <i class="fa fa-save"></i></button>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="2" placeholder="Description" name="description"></textarea>
+                        </div>
+                        <button type="submit" name="request" class="btn btn-dark btn-flat">Save.. <i class="fa fa-save"></i></button>
                     </form>
                 </div>
             </div>
@@ -86,7 +79,8 @@ include "layouts/header.php";
                             <tr>
                                 <th>Planning</th>
                                 <th>Status</th>
-                                <th>Nominal</th>
+                                <th>Target</th>
+                                <th>Priority</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
@@ -119,14 +113,13 @@ include "layouts/header.php";
                                 <th>Planning</th>
                                 <th>Status</th>
                                 <th>Nominal</th>
+                                <th>Priority</th>
                                 <th>Date</th>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
         </div>
     </section>
     <!-- /.content -->
