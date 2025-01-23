@@ -7,10 +7,10 @@ $time = date('H:i:s');
 $dtme = date('Y-m-d H:i:s');
 
 $database = [
-    'host' => 'localhost',
-    'user' => 'root',   # Database Username
-    'pass' => '',       # Database Password
-    'name' => 'noted'   # Database Name
+    'host' => 'localhost',              # Database host
+    'user' => 'root',                   # Database username
+    'pass' => '',                       # Database password
+    'name' => 'staging_notes',          # Database name
 ];
 
 $call = mysqli_connect($database['host'], $database['user'], $database['pass'], $database['name']);
@@ -18,4 +18,14 @@ $call = mysqli_connect($database['host'], $database['user'], $database['pass'], 
 if ($call->connect_error) {
     die("Connection failed: " . $call->connect_error);
     echo "Server Sedang ada gangguan";
+}
+
+function base_url($path = '')
+{
+    return  '../../../../' . $path;
+}
+
+function assets($path)
+{
+    return base_url('public/assets/' . $path);
 }
