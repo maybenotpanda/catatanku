@@ -7,10 +7,10 @@ $time = date('H:i:s');
 $dtme = date('Y-m-d H:i:s');
 
 $database = [
-    'host' => 'localhost',
-    'user' => 'root',   # Database Username
-    'pass' => '',       # Database Password
-    'name' => 'noted'   # Database Name
+    'host' => 'localhost',              # Database host
+    'user' => 'root',                   # Database username
+    'pass' => '',                       # Database password
+    'name' => 'staging_notes',          # Database name
 ];
 
 $call = mysqli_connect($database['host'], $database['user'], $database['pass'], $database['name']);
