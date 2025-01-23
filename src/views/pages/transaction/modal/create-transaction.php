@@ -39,10 +39,10 @@
             <select class="form-control select2" style="width: 100%;" name="account">
               <option selected="selected" value="802b8ad6-d8ea-11ef-8a81-9c2f9dbc986a">Select Options</option>
               <?php
-              // $say = getAllAccounts($_SESSION['uuid']);
-              // foreach ($say as $mm) :
-              //   echo "<option value=" . $mm['uuid'] . ">" . $mm['name'] . "</option>";
-              // endforeach;
+              $say = getActivatedAccounts();
+              foreach ($say as $mm) :
+                echo "<option value=" . $mm['uuid'] . ">" . $mm['name'] . "</option>";
+              endforeach;
               ?>
             </select>
           </div>
