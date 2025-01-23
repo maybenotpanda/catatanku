@@ -19,3 +19,13 @@ if ($call->connect_error) {
     die("Connection failed: " . $call->connect_error);
     echo "Server Sedang ada gangguan";
 }
+
+function base_url($path = '')
+{
+    return  '../../../../' . $path;
+}
+
+function assets($path)
+{
+    return base_url('public/assets/' . $path);
+}
