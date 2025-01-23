@@ -16,7 +16,7 @@
   <a href="src/views/pages/accounts">
     <h4>Akun</h4>
   </a>
-  <a href="src/views/pages/transaction.php">
+  <a href="src/views/pages/transaction">
     <h4>Transaksi</h4>
   </a>
 </div>
