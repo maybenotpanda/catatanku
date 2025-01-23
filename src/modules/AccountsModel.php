@@ -49,3 +49,10 @@ function getDetailAccount($uuid)
   );
   return mysqli_fetch_array($query);
 }
+
+function getActivatedAccounts()
+{
+  global $call;
+  $query = mysqli_query($call, "SELECT * FROM accounts WHERE accounts.site_status=1007 ORDER BY name ASC");
+  return $query;
+}
