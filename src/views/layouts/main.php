@@ -1,6 +1,8 @@
 <?php
 
 include '../../../../mainconfig.php';
+include '../../../helpers/date.php';
+include '../../../helpers/currency.php';
 
 // ------------------------------------------------ BATAS SUCI ------------------------------------------------ //
 

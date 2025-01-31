@@ -51,7 +51,7 @@ include "modal/create-transaction.php";
               ?>
                 <tr>
                   <td><?= $mm['name']; ?></td>
-                  <td><?= $mm['total']; ?></td>
+                  <td><?= currency($mm['total']); ?></td>
                   <td>
                     <?php
                     if ($mm['type'] === 'Income') {
@@ -61,7 +61,7 @@ include "modal/create-transaction.php";
                     }
                     ?>
                   </td>
-                  <td><?= $mm['transaction_at']; ?></td>
+                  <td><?= dateEN($mm['transaction_at'], 'time'); ?></td>
                   <td>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-detail<?= $mm['uuid']; ?>">
                       <i class="fas fa-eye"></i>

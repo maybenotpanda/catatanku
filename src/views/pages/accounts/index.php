@@ -47,7 +47,7 @@ include "create.php";
               ?>
                 <tr>
                   <td><?= $mm['name'] ?></td>
-                  <td><?= $mm['balance'] ?></td>
+                  <td><?= currency($mm['balance']) ?></td>
                   <td>
                     <!-- danger, warning -->
                     <span class="badge bg-<?php if ($mm['status'] === 'Activated') {
@@ -63,9 +63,9 @@ include "create.php";
                   <td>
                     <?php
                     if ($mm['updated_at'] === null) {
-                      echo $mm['created_at'];
+                      echo dateEN($mm['created_at']);
                     } else {
-                      echo $mm['updated_at'];
+                      echo dateEN($mm['updated_at']);
                     }
                     ?>
                   </td>
