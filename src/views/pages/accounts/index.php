@@ -29,7 +29,7 @@ include "modal/create-transfer.php";
           <h3 class="card-title">Account List</h3>
         </div>
         <div class="card-body">
-          <a class="btn btn-app bg-success" data-toggle="modal" data-target="#create-account">
+          <a class="btn btn-app bg-white" data-toggle="modal" data-target="#create-account">
             <i class="fas fa-plus"></i><span>Account</span>
           </a>
           <a class="btn btn-app bg-dark" data-toggle="modal" data-target="#create-transfer">
