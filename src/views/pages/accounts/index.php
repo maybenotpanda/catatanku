@@ -23,6 +23,7 @@ include "modal/create-transfer.php";
   </section>
   <section class="content">
     <div class="container-fluid">
+      <?php require '../../includes/alerts.php' ?>
       <div class="card">
         <div class="card-header bg-black color-palette">
           <h3 class="card-title">Account List</h3>
