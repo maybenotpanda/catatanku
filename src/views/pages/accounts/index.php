@@ -2,6 +2,7 @@
 $title = "Accounts";
 include "../../includes/header.php";
 include "create.php";
+include "modal/create-transfer.php";
 ?>
 
 <div class="content-wrapper">
@@ -22,13 +23,17 @@ include "create.php";
   </section>
   <section class="content">
     <div class="container-fluid">
+      <?php require '../../includes/alerts.php' ?>
       <div class="card">
         <div class="card-header bg-black color-palette">
-          <h3 class="card-title">Account List</h3>
+          <h3 class="card-title"><?= $title ?> List</h3>
         </div>
         <div class="card-body">
-          <a class="btn btn-app bg-success" data-toggle="modal" data-target="#create-account">
+          <a class="btn btn-app bg-white" data-toggle="modal" data-target="#create-account">
             <i class="fas fa-plus"></i><span>Account</span>
+          </a>
+          <a class="btn btn-app bg-dark" data-toggle="modal" data-target="#create-transfer">
+            <i class="fas fa-plus"></i><span>Transfer</span>
           </a>
           <table id="example1" class="table table-bordered table-striped">
             <thead>
