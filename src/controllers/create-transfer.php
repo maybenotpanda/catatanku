@@ -20,16 +20,16 @@ if (isset($_POST['request'])) {
       $updateAccountFrom  = mysqli_query($call, "UPDATE accounts SET balance='$resultFrom', updated_at='$dtme' WHERE uuid='$account_from'");
       $updateAccountTo    = mysqli_query($call, "UPDATE accounts SET balance='$resultTo', updated_at='$dtme' WHERE uuid='$account_to'");
       if ($updateAccountFrom && $updateAccountTo) {
-        header('Location:' . $_SERVER["HTTP_REFERER"] . '?status=200&?message=success');
+        header('Location:../views/pages/accounts?status=200&message=success 👌');
       } else {
-        header('Location:' . $_SERVER["HTTP_REFERER"] . '?status=500&?message=null');
+        header('Location:../views/pages/accounts?status=500&message=null 🥴');
       }
     } else {
-      header('Location:' . $_SERVER["HTTP_REFERER"] . '?status=400&?message=Saldo Tidak Mencukupi');
+      header('Location:../views/pages/accounts?status=400&message=Saldo Tidak Mencukupi 😱');
     }
   } else {
-    header('Location:' . $_SERVER["HTTP_REFERER"] . '?status=404&?message=Akun Tidak Tersedia');
+    header('Location:../views/pages/accounts?status=404&message=Akun Tidak Tersedia 😟');
   }
 } else {
-  header('Location:' . $_SERVER["HTTP_REFERER"] . '?status=500&?message=bad request');
+  header('Location:../views/pages/accounts?status=500&message=bad request 🥴');
 }
