@@ -29,11 +29,11 @@ include "modal/create-transaction.php";
           <h3 class="card-title">Transaction List</h3>
         </div>
         <div class="card-body">
-          <a class="btn btn-app bg-success" data-toggle="modal" data-target="#create-transaction">
-            <i class="fas fa-plus" style="color: #1f2d3d;"></i><span style="color: #f7f7f7;">Add</span>
+          <a class="btn btn-app bg-white" data-toggle="modal" data-target="#create-transaction">
+            <i class="fas fa-plus"></i><span>Add</span>
           </a>
-          <a class="btn btn-app bg-info" data-toggle="modal" data-target="#modal-category">
-            <i class=" fas fa-cat" style="color: #1f2d3d;"></i><span style="color: #f7f7f7;">Category</span>
+          <a class="btn btn-app bg-dark" data-toggle="modal" data-target="#modal-category">
+            <i class=" fas fa-cat"></i><span>Category</span>
           </a>
           <table id="example1" class="table table-bordered table-striped">
             <thead>
