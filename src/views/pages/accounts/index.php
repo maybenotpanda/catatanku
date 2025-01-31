@@ -26,7 +26,7 @@ include "modal/create-transfer.php";
       <?php require '../../includes/alerts.php' ?>
       <div class="card">
         <div class="card-header bg-black color-palette">
-          <h3 class="card-title">Account List</h3>
+          <h3 class="card-title"><?= $title ?> List</h3>
         </div>
         <div class="card-body">
           <a class="btn btn-app bg-white" data-toggle="modal" data-target="#create-account">
