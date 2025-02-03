@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="../../../controllers/update-accounts.php?uuid=<?= $mm['uuid'] ?>" method="POST">
+      <form action="<?= base_url('src/controllers/AccountsController?type=updateAccount&account=') ?><?= $mm['uuid'] ?>" method="POST">
         <div class="modal-body">
           <?php
           $uuid = $mm['uuid'];
@@ -62,7 +62,5 @@
         </div>
       </form>
     </div>
-    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog -->
 </div>

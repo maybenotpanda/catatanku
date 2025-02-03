@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="../../../controllers/create-accounts.php" method="POST">
+      <form action="<?= base_url('src/controllers/AccountsController?type=createAccount') ?>" method="POST">
         <div class="modal-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Name Account:</label>
@@ -20,7 +20,7 @@
           <div class="form-group">
             <label>Status</label>
             <select class="form-control select2" style="width: 100%;" name="status">
-              <option selected="selected">Select Options</option>
+              <option selected="selected" value="">Select Options</option>
               <?php
               $say = getAllStatus('activation');
               foreach ($say as $mm) :
@@ -36,7 +36,5 @@
         </div>
       </form>
     </div>
-    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog -->
 </div>

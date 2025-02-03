@@ -1,6 +1,6 @@
 <div class="modal fade" id="delete-account<?= $mm['uuid'] ?>">
   <div class="modal-dialog">
-    <form action="../../../controllers/delete-accounts.php?uuid=<?= $mm['uuid'] ?>" method="POST">
+    <form action="<?= base_url('src/controllers/AccountsController?type=deleteAccount&account=') ?><?= $mm['uuid'] ?>" method="POST">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Hapus Mandiri</h4>
@@ -17,7 +17,5 @@
         </div>
       </div>
     </form>
-    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog -->
 </div>
