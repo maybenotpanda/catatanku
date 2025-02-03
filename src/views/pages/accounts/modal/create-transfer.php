@@ -7,12 +7,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="../../../controllers/create-transfer.php" method="POST">
+      <form action="<?= base_url('src/controllers/AccountsController?type=createTransfer') ?>" method="POST">
         <div class="modal-body">
           <div class="form-group">
             <label>Account From</label>
             <select class="form-control select2" style="width: 100%;" name="accountFrom">
-              <option selected="selected" value="802b8ad6-d8ea-11ef-8a81-9c2f9dbc986a">Select Options</option>
+              <option selected="selected" value="">Select Options</option>
               <?php
               $say = getActivatedAccounts();
               foreach ($say as $mm) :
@@ -24,7 +24,7 @@
           <div class="form-group">
             <label>Account To</label>
             <select class="form-control select2" style="width: 100%;" name="accountTo">
-              <option selected="selected" value="802b8ad6-d8ea-11ef-8a81-9c2f9dbc986a">Select Options</option>
+              <option selected="selected" value="">Select Options</option>
               <?php
               $say = getActivatedAccounts();
               foreach ($say as $mm) :
@@ -44,7 +44,5 @@
         </div>
       </form>
     </div>
-    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog -->
 </div>

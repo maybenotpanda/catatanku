@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="../../../controllers/create-category.php" method="POST">
+      <form action="<?= base_url('src/controllers/CategoryController?type=createCategory') ?>" method="POST">
         <div class="modal-body">
           <div class="form-group">
             <label for="nameCategory">Name</label>

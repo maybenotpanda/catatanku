@@ -1,7 +1,7 @@
 <?php
 $title = "Accounts";
 include "../../includes/header.php";
-include "create.php";
+include "modal/create-account.php";
 include "modal/create-transfer.php";
 ?>
 
@@ -54,7 +54,6 @@ include "modal/create-transfer.php";
                   <td><?= $mm['name'] ?></td>
                   <td><?= currency($mm['balance']) ?></td>
                   <td>
-                    <!-- danger, warning -->
                     <span class="badge bg-<?php if ($mm['status'] === 'Activated') {
                                             echo 'success';
                                           } else if ($mm['status']  === 'Suspended') {
@@ -87,9 +86,9 @@ include "modal/create-transfer.php";
                   </td>
                 </tr>
               <?php
-                include "detail.php";
-                include "update.php";
-                include "delete.php";
+                include "modal/detail-account.php";
+                include "modal/update-account.php";
+                include "modal/delete-account.php";
               endforeach;
               ?>
             </tbody>
