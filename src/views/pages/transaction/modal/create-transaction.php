@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="../../../controllers/create-transaction.php" method="POST">
+      <form action="<?= base_url('src/controllers/TransactionsController?type=createTransaction') ?>" method="POST">
         <div class="modal-body">
           <div class="form-group">
             <label>Type</label>
@@ -37,7 +37,7 @@
           <div class="form-group">
             <label>Accounts</label>
             <select class="form-control select2" style="width: 100%;" name="account">
-              <option selected="selected" value="802b8ad6-d8ea-11ef-8a81-9c2f9dbc986a">Select Options</option>
+              <option selected="selected" value="">Select Options</option>
               <?php
               $say = getActivatedAccounts();
               foreach ($say as $mm) :
@@ -49,7 +49,7 @@
           <div class="form-group">
             <label>Category</label>
             <select class="form-control select2" style="width: 100%;" name="category">
-              <option selected="" disabled>Select Options</option>
+              <option selected="selected" value="">Select Options</option>
               <?php
               $say = getAllCategory();
               foreach ($say as $mm) :
@@ -69,7 +69,5 @@
         </div>
       </form>
     </div>
-    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog -->
 </div>
