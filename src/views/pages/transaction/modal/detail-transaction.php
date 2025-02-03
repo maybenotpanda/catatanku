@@ -61,7 +61,5 @@
         <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
       </div>
     </div>
-    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog -->
 </div>
