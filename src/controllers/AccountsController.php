@@ -25,8 +25,7 @@ if (isset($_POST['request'])) {
           name,
           balance,
           created_at
-        )
-        VALUE (
+        ) VALUE (
           UUID(),
           '$status',
           '$name',
@@ -80,8 +79,8 @@ if (isset($_POST['request'])) {
             $call,
             "UPDATE accounts
             SET
-            balance='$resultTo',
-            updated_at='$dtme'
+              balance='$resultTo',
+              updated_at='$dtme'
             WHERE uuid='$account_to'"
           );
           if ($updateAccountFrom && $updateAccountTo) {
