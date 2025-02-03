@@ -10,7 +10,7 @@ if (isset($_POST['request'])) {
       $date         = isset($_POST['date']) ? trim($_POST['date']) : '';
       $name         = isset($_POST['name']) ? trim($_POST['name']) : '';
       $total        = isset($_POST['total']) ? preg_replace("/[^0-9]/", "", $_POST['total']) : '0';
-      $account      = isset($_POST['account']) ? trim($_POST['account']) : '';
+      $account_from = isset($_POST['account']) ? trim($_POST['account']) : '';
       $category     = isset($_POST['category']) ? trim($_POST['category']) : '';
       $description  = isset($_POST['description']) ? trim($_POST['description']) : '';
       if (empty($type)) {
@@ -29,7 +29,7 @@ if (isset($_POST['request'])) {
         header('Location:../views/pages/transaction?status=400&message=Harap Memasukkan Total');
         exit;
       }
-      if (empty($account)) {
+      if (empty($account_from)) {
         header('Location:../views/pages/transaction?status=400&message=Harap Memilih Akun Transaksi');
         exit;
       }
@@ -37,14 +37,15 @@ if (isset($_POST['request'])) {
         header('Location:../views/pages/transaction?status=400&message=Harap Memilih Kategori Transaksi');
         exit;
       }
+
       $dateExplode      = explode('-', $date);
       $dateTransaction  = $dateExplode[2] . '-' . $dateExplode[1] . '-' . $dateExplode[0];
 
-      $account      = mysqli_query($call, "SELECT * FROM accounts WHERE uuid='$account'");
+      $account      = mysqli_query($call, "SELECT * FROM accounts WHERE uuid='$account_from'");
       $dataAccount  = mysqli_fetch_array($account);
       if ($dataAccount) {
         if ($type === "Income") {
-          $result = intval($data['balance'] + $total);
+          $result = intval($dataAccount['balance'] + $total);
 
           $updateAccount      = mysqli_query(
             $call,
@@ -52,7 +53,7 @@ if (isset($_POST['request'])) {
             SET
               balance='$result',
               updated_at='$dtme'
-            WHERE uuid='$account'"
+            WHERE uuid='$account_from'"
           );
           $createTransaction  = mysqli_query(
             $call,
@@ -68,7 +69,7 @@ if (isset($_POST['request'])) {
               created_at
             ) VALUE (
               UUID(),
-              '$account',
+              '$account_from',
               '$category',
               '$name',
               '$total',
@@ -84,16 +85,16 @@ if (isset($_POST['request'])) {
             header('Location:../views/pages/transaction?status=500&message=null');
           }
         } else {
-          if ($data['balance'] > $total) {
-            $result = intval($data['balance'] - $total);
+          if ($dataAccount['balance'] >= $total) {
+            $result = intval($dataAccount['balance'] - $total);
 
             $updateAccount      = mysqli_query(
               $call,
               "UPDATE accounts
-            SET
-              balance='$result',
-              updated_at='$dtme'
-            WHERE uuid='$account'"
+              SET
+                balance='$result',
+                updated_at='$dtme'
+              WHERE uuid='$account_from'"
             );
             $createTransaction  = mysqli_query(
               $call,
@@ -109,7 +110,7 @@ if (isset($_POST['request'])) {
                 created_at
               ) VALUE (
                 UUID(),
-                '$account',
+                '$account_from',
                 '$category',
                 '$name',
                 '$total',
