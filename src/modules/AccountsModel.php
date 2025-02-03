@@ -18,8 +18,7 @@ function getAllAccounts()
     ON accounts.site_status = status.id
     WHERE
     NOT accounts.site_status=1001
-    AND
-    accounts.deleted_at IS null
+    AND accounts.deleted_at IS null
     ORDER BY updated_at ASC, created_at DESC
     "
   );
@@ -43,8 +42,7 @@ function getDetailAccount($uuid)
     FROM accounts
     JOIN status
     ON accounts.site_status = status.id
-    WHERE
-    accounts.uuid='$uuid'
+    WHERE accounts.uuid='$uuid'
     "
   );
   return mysqli_fetch_array($query);
@@ -53,6 +51,13 @@ function getDetailAccount($uuid)
 function getActivatedAccounts()
 {
   global $call;
-  $query = mysqli_query($call, "SELECT * FROM accounts WHERE accounts.site_status=1007 ORDER BY name ASC");
+  $query = mysqli_query(
+    $call,
+    "SELECT
+    *
+    FROM accounts
+    WHERE accounts.site_status=1007
+    ORDER BY name ASC"
+  );
   return $query;
 }
