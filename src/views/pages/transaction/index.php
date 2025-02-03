@@ -1,5 +1,5 @@
 <?php
-$title = "Transactions";
+$title = "Transaction";
 include "../../includes/header.php";
 include "modal/create-category.php";
 include "modal/create-transaction.php";
@@ -26,14 +26,14 @@ include "modal/create-transaction.php";
     <div class="container-fluid">
       <div class="card">
         <div class="card-header bg-black color-palette">
-          <h3 class="card-title">Transaction List</h3>
+          <h3 class="card-title"><?= $title ?> List</h3>
         </div>
         <div class="card-body">
           <a class="btn btn-app bg-white" data-toggle="modal" data-target="#create-transaction">
-            <i class="fas fa-plus"></i><span>Add</span>
+            <i class="fas fa-plus"></i><span>Transaction</span>
           </a>
           <a class="btn btn-app bg-dark" data-toggle="modal" data-target="#modal-category">
-            <i class=" fas fa-cat"></i><span>Category</span>
+            <i class=" fas fa-plus"></i><span>Category</span>
           </a>
           <table id="example1" class="table table-bordered table-striped">
             <thead>
@@ -67,14 +67,10 @@ include "modal/create-transaction.php";
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-detail<?= $mm['uuid']; ?>">
                       <i class="fas fa-eye"></i>
                     </button>
-                    <!-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal">
-                      <i class="fas fa-trash"></i>
-                    </button> -->
                   </td>
                 </tr>
               <?php
                 include "modal/detail-transaction.php";
-              // $i++;
               endforeach;
               ?>
             </tbody>
