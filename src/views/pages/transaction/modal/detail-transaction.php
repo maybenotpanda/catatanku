@@ -35,7 +35,7 @@
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Total:</label>
-            <p><?= $data['total'] ?></p>
+            <p><?= currency($data['total']) ?></p>
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Description:</label>
@@ -44,11 +44,11 @@
           <div class="row">
             <div class="col">
               <label for="recipient-name" class="col-form-label">Transaction Date:</label>
-              <p><?= $data['date'] ?></p>
+              <p><?= dateEN($data['date']) ?></p>
             </div>
             <div class="col">
               <label for="recipient-name" class="col-form-label">Created Date:</label>
-              <p><?= $data['created_at'] ?></p>
+              <p><?= dateEN($data['created_at']) ?></p>
             </div>
           </div>
         <?php

@@ -28,20 +28,20 @@
             </div>
             <div class="col">
               <label for="recipient-name" class="col-form-label">Balance:</label>
-              <p><?= $data['balance'] ?></p>
+              <p><?= currency($data['balance']) ?></p>
             </div>
           </div>
           <div class="row">
             <div class="col">
               <label for="recipient-name" class="col-form-label">Created:</label>
-              <p><?= $data['created_at'] ?></p>
+              <p><?= dateEN($data['created_at']) ?></p>
             </div>
             <?php
             if ($data['updated_at']) {
             ?>
               <div class="col">
                 <label for="recipient-name" class="col-form-label">Updated:</label>
-                <p><?= $data['updated_at'] ?></p>
+                <p><?= dateEN($data['updated_at']) ?></p>
               </div>
             <?php } ?>
           </div>
