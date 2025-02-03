@@ -42,7 +42,7 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
               <a href="../accounts" class="nav-link">
-                <i class="nav-icon	fab fa-cc-paypal"></i>
+                <i class="nav-icon	fas fa-wallet"></i>
                 <p>
                   Accounts
                 </p>
