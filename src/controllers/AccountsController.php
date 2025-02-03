@@ -64,7 +64,7 @@ if (isset($_POST['request'])) {
       $getAccountTo   = mysqli_query($call, "SELECT * FROM accounts WHERE uuid='$account_to'");
       $dataTo         = mysqli_fetch_array($getAccountTo);
       if ($dataFrom && $dataTo) {
-        if ($dataFrom['balance'] > $balance) {
+        if ($dataFrom['balance'] >= $balance) {
           $resultFrom   = intval($dataFrom['balance'] - $balance);
           $resultTo     = intval($dataTo['balance'] + $balance);
 
