@@ -9,7 +9,7 @@ if (isset($_POST['request'])) {
       $name         = isset($_POST['name']) ? trim($_POST['name']) : '';
       $description  = isset($_POST['description']) ? trim($_POST['description']) : '';
       if (empty($name)) {
-        header('Location:../views/pages/transaction?status=400&message=Harap Memasukkan Nama Kategori');
+        header('Location:../views/pages/categories?status=400&message=Harap Memasukkan Nama Kategori');
         exit;
       }
 
@@ -28,14 +28,14 @@ if (isset($_POST['request'])) {
         )"
       );
       if ($createCategory) {
-        header('Location:../views/pages/transaction?status=200&message=successfully');
+        header('Location:../views/pages/categories?status=200&message=successfully');
       } else {
-        header('Location:../views/pages/transaction?status=500&message=null');
+        header('Location:../views/pages/categories?status=500&message=null');
       }
       break;
     default:
-      header('Location:../views/pages/transaction?status=404&message=not found type');
+      header('Location:../views/pages/categories?status=404&message=not found type');
   }
 } else {
-  header('Location:../views/pages/transaction?status=500&message=bad request');
+  header('Location:../views/pages/categories?status=500&message=bad request');
 }
