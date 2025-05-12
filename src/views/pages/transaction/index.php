@@ -1,7 +1,6 @@
 <?php
 $title = "Transaction";
 include "../../includes/header.php";
-include "modal/create-category.php";
 include "modal/create-transaction.php";
 ?>
 
