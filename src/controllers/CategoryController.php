@@ -64,6 +64,27 @@ if (isset($_POST['request'])) {
         header('Location:../views/pages/categories?status=500&message=null');
       }
       break;
+    case "deleteCategory":
+      // * delete Category
+      $uuid = $_GET['category'];
+
+      if (empty($uuid)) {
+        header('Location:../views/pages/categories?status=404&message=Akun Tidak Di temukan');
+        exit;
+      }
+      $deleteCategory = mysqli_query(
+        $call,
+        "UPDATE category
+          SET
+            deleted_at='$dtme'
+          WHERE uuid='$uuid'"
+      );
+      if ($deleteCategory) {
+        header('Location:../views/pages/categories?status=200&message=successfully');
+      } else {
+        header('Location:../views/pages/categories?status=500&message=null');
+      }
+      break;
     default:
       header('Location:../views/pages/categories?status=404&message=not found type');
   }
