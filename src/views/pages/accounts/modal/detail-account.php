@@ -27,8 +27,14 @@
               <p><?= $data['name'] ?></p>
             </div>
             <div class="col">
+              <label for="recipient-name" class="col-form-label">Account Number:</label>
+              <p><?= $data['account_number'] ? $data['account_number'] : "Tidak Tersedia" ?></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class='col'>
               <label for="recipient-name" class="col-form-label">Balance:</label>
-              <p><?= currency($data['balance']) ?></p>
+              <p><?= currency($data['account_number']) ?></p>
             </div>
           </div>
           <div class="row">
