@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-category">
+<div class="modal fade" id="create-category">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
