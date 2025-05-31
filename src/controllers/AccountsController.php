@@ -7,6 +7,7 @@ if (isset($_POST['request'])) {
     case "createAccount":
       // * create account
       $name     = isset($_POST['name']) ? trim($_POST['name']) : '';
+      $account_number = isset($_POST['accountNumber']) ? trim($_POST['accountNumber']) : '';
       $status   = isset($_POST['status']) ? trim($_POST['status']) : '';
       $balance  = isset($_POST['balance']) ? preg_replace("/[^0-9]/", "", $_POST['balance']) : '0';
       if (empty($name)) {
@@ -23,12 +24,14 @@ if (isset($_POST['request'])) {
           uuid,
           site_status,
           name,
+          account_number,
           balance,
           created_at
         ) VALUE (
           UUID(),
           '$status',
           '$name',
+          NULLIF('$account_number', ''),
           '$balance',
           '$dtme'
         )"
@@ -117,6 +120,7 @@ if (isset($_POST['request'])) {
     case "updateAccount":
       // * update account
       $uuid         = $_GET['account'];
+      $account_number = isset($_POST['accountNumber']) ? trim($_POST['accountNumber']) : '';
       $status       = $_POST['status'];
 
       if (empty($uuid)) {
@@ -128,6 +132,7 @@ if (isset($_POST['request'])) {
         "UPDATE accounts
         SET
           site_status='$status',
+          account_number=NULLIF('$account_number', ''),
           updated_at='$dtme'
         WHERE uuid='$uuid'"
       );
