@@ -8,6 +8,7 @@ function getAllAccounts()
     "SELECT
       accounts.uuid,
       accounts.name,
+      accounts.account_number,
       accounts.balance,
       accounts.created_at,
       accounts.updated_at,
@@ -34,6 +35,7 @@ function getDetailAccount($uuid)
       accounts.uuid,
       accounts.site_status,
       accounts.name,
+      accounts.account_number,
       accounts.balance,
       accounts.created_at,
       accounts.updated_at,

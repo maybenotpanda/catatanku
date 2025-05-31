@@ -14,6 +14,10 @@
             <input type="text" name="name" class="form-control" placeholder="Insert your title">
           </div>
           <div class="form-group">
+            <label for="exampleInputEmail1">Account Number:</label>
+            <input type="text" name="accountNumber" class="form-control" placeholder="xxxxxxxx">
+          </div>
+          <div class="form-group">
             <label for="exampleInputPassword1">Nominal: </label>
             <input type="text" id="nominalRupiah" class="form-control" placeholder="Nominal" name="balance">
           </div>
