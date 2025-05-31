@@ -1,7 +1,6 @@
 <?php
 $title = "Transaction";
 include "../../includes/header.php";
-include "modal/create-category.php";
 include "modal/create-transaction.php";
 ?>
 
@@ -31,9 +30,6 @@ include "modal/create-transaction.php";
         <div class="card-body">
           <a class="btn btn-app bg-white" data-toggle="modal" data-target="#create-transaction">
             <i class="fas fa-plus"></i><span>Transaction</span>
-          </a>
-          <a class="btn btn-app bg-dark" data-toggle="modal" data-target="#modal-category">
-            <i class=" fas fa-plus"></i><span>Category</span>
           </a>
           <table id="example1" class="table table-bordered table-striped">
             <thead>

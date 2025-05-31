@@ -80,7 +80,35 @@ if (isset($_POST['request'])) {
             )"
           );
           if ($updateAccount && $createTransaction) {
-            header('Location:../views/pages/transaction?status=200&message=successfully');
+            $getNewTransaction  = "SELECT uuid FROM transactions ORDER BY created_at DESC LIMIT 1";
+            if ($getNewTransaction) {
+              $newTransaction     = mysqli_query($call, $getNewTransaction);
+              $newTransactionData = mysqli_fetch_assoc($newTransaction);
+
+              $dataJson = json_encode([
+                'transaction' =>   [
+                  'uuid' => $newTransactionData['uuid'],
+                  'site_category' => $category,
+                  'name' => $name,
+                  'total' => $total,
+                  'type' => $type,
+                  'description' => $description,
+                  'transaction_at' => $dateTransaction,
+                  'created_at' => $dtme,
+                ],
+                'account' => [
+                  'uuid' => $account_from,
+                  'old_balance' => $dataAccount['balance'],
+                  'new_balance' => $result,
+                ]
+              ]);
+              $createLog = mysqli_query($call, "INSERT INTO transaction_logs (site_user, data, type) VALUE (NULL, '$dataJson', 'TRANSACTION')");
+              if ($createLog) {
+                header('Location:../views/pages/transaction?status=200&message=successfully');
+              }
+            } else {
+              header('Location:../views/pages/transaction?status=404&message=not found transaction');
+            }
           } else {
             header('Location:../views/pages/transaction?status=500&message=null');
           }
@@ -121,7 +149,35 @@ if (isset($_POST['request'])) {
               )"
             );
             if ($updateAccount && $createTransaction) {
-              header('Location:../views/pages/transaction?status=200&message=successfully');
+              $getNewTransaction  = "SELECT uuid FROM transactions ORDER BY created_at DESC LIMIT 1";
+              if ($getNewTransaction) {
+                $newTransaction     = mysqli_query($call, $getNewTransaction);
+                $newTransactionData = mysqli_fetch_assoc($newTransaction);
+
+                $dataJson = json_encode([
+                  'transaction' =>   [
+                    'uuid' => $newTransactionData['uuid'],
+                    'site_category' => $category,
+                    'name' => $name,
+                    'total' => $total,
+                    'type' => $type,
+                    'description' => $description,
+                    'transaction_at' => $dateTransaction,
+                    'created_at' => $dtme,
+                  ],
+                  'account' => [
+                    'uuid' => $account_from,
+                    'old_balance' => $dataAccount['balance'],
+                    'new_balance' => $result,
+                  ]
+                ]);
+                $createLog = mysqli_query($call, "INSERT INTO transaction_logs (site_user, data, type) VALUE (NULL, '$dataJson', 'TRANSACTION')");
+                if ($createLog) {
+                  header('Location:../views/pages/transaction?status=200&message=successfully');
+                }
+              } else {
+                header('Location:../views/pages/transaction?status=404&message=not found transaction');
+              }
             } else {
               header('Location:../views/pages/transaction?status=500&message=null');
             }
