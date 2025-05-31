@@ -26,6 +26,10 @@
                 ?>
               </select>
             </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Account Number:</label>
+              <input type="text" name="accountNumber" class="form-control" placeholder="xxxxxxxx" value="<?= $mm['account_number'] ?>">
+            </div>
             <div class="row">
               <div class="col">
                 <label for="recipient-name" class="col-form-label">Account:</label>
