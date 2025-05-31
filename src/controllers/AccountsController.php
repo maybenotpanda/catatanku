@@ -98,7 +98,7 @@ if (isset($_POST['request'])) {
                 'updated_at' => $dtme,
               ]
             ]);
-            $createLog = mysqli_query($call, "INSERT INTO transaction_logs (site_user, data, type) VALUE (NULL, '$dataJson', 'TRANSACTION')");
+            $createLog = mysqli_query($call, "INSERT INTO transaction_logs (site_user, data, type) VALUE (NULL, '$dataJson', 'TRANSFER')");
             if ($createLog) {
               header('Location:../views/pages/accounts?status=200&message=successfully');
             } else {
