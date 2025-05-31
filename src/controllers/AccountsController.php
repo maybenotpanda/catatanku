@@ -84,7 +84,26 @@ if (isset($_POST['request'])) {
             WHERE uuid='$account_to'"
           );
           if ($updateAccountFrom && $updateAccountTo) {
-            header('Location:../views/pages/accounts?status=200&message=successfully');
+            $dataJson = json_encode([
+              'account_from' => [
+                'uuid' => $account_from,
+                'old_balance' => $dataFrom['balance'],
+                'new_balance' => $resultFrom,
+                'updated_at' => $dtme,
+              ],
+              'account_to' => [
+                'uuid' => $account_from,
+                'old_balance' => $dataTo['balance'],
+                'new_balance' => $resultTo,
+                'updated_at' => $dtme,
+              ]
+            ]);
+            $createLog = mysqli_query($call, "INSERT INTO transaction_logs (site_user, data, type) VALUE (NULL, '$dataJson', 'TRANSACTION')");
+            if ($createLog) {
+              header('Location:../views/pages/accounts?status=200&message=successfully');
+            } else {
+              header('Location:../views/pages/accounts?status=500&message=null');
+            }
           } else {
             header('Location:../views/pages/accounts?status=500&message=null');
           }
